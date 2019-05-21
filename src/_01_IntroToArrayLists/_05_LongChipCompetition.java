@@ -17,22 +17,29 @@ public class _05_LongChipCompetition {
 	public static void main(String[] args) {
 		_05_LongChipCompetition lcc = new _05_LongChipCompetition();
 		lcc.initializeBeatles();
-lcc.start();
+		lcc.start();
 	}
+
 	public void start() {
-		double largest;
+		double largest =0;
+		String beatleLargest = "";
 		for (int i = 0; i < theBeatles.size(); i++) {
-		ArrayList<Chip> chips = theBeatles.get(i).getChips();
-		for (int j = 0; j < chips.size(); j++) {
-		if(chips.get(i).getLength()>chips.get(i+1).getLength()) {
-			largest=chips.get(i).getLength();
-			System.out.println(theBeatles.get(i).getName() + " has the largest chip ");
+			ArrayList<Chip> chips = theBeatles.get(i).getChips();
+			for (int j = 0; j < chips.size(); j++) {
+				if (largest < chips.get(j).getLength()) {
+					
+
+						largest = chips.get(j).getLength();
+						beatleLargest = theBeatles.get(i).getName();
+						if (largest == chips.get(j).getLength()) {
+							System.out.println(beatleLargest + " has the largest chip " + largest);
+						}
+					}
+				}
+			}
 		}
-		
-		}}
-		
-		}
-		
+	
+
 	private void initializeBeatles() {
 		Beatle george = new Beatle("George");
 		Beatle john = new Beatle("John");
@@ -43,8 +50,8 @@ lcc.start();
 		theBeatles.add(paul);
 		theBeatles.add(ringo);
 	}
-	
-	public ArrayList<Beatle> getTheBand(){
+
+	public ArrayList<Beatle> getTheBand() {
 		return theBeatles;
 	}
 }
