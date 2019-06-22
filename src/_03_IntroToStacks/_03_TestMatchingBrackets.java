@@ -19,9 +19,19 @@ public class _03_TestMatchingBrackets {
 	}
 
 	// USE A STACK TO COMPLETE THE METHOD FOR CHECKING IF EVERY OPENING BRACKET HAS A MATCHING CLOSING BRACKET
+	Stack <Character> chars = new Stack <Character> ();
 	private boolean doBracketsMatch(String b) {
-		
-		return false;
+		for (int i = 0; i < b.length(); i++) {
+			if(b.charAt(i) == '{') {
+				chars.push('{');
+			}
+			if(b.charAt(i)== '}'&& ! chars.isEmpty()) {
+				chars.pop();
+			}
+				
+		}
+		return chars.isEmpty();
 	}
+
 
 }
